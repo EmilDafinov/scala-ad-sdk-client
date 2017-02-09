@@ -9,7 +9,7 @@ lazy val scalaAdSdkClient = (project in file("."))
     organization := "com.emiliorodo",
     name := "scala-ad-sdk-client",
     version := "0.1",
-    
+
     licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
 
     resolvers += Resolver.bintrayRepo(owner = "emildafinov", repo = "com.emiliorodo"),
