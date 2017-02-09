@@ -25,6 +25,7 @@ lazy val scalaAdSdkClient = (project in file("."))
       "com.emiliorodo" %% "scala-ad-sdk" % "1.0"
     ),
 
-    maintainer in Docker := "Emil Dafinov <emil.dafinov@gmail.com>"
+    maintainer in Docker := "Emil Dafinov <emil.dafinov@gmail.com>",
+    packageName in Docker := "emildafinov-docker-emiliorodo-docker.bintray.io/scala-ad-sdk-client"
   )
     
