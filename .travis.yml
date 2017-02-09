@@ -1,18 +1,19 @@
 language: scala
-
 cache:
   directories:
-    - $HOME/.ivy2/cache
-    - $HOME/.sbt/boot/
-    
+  - "$HOME/.ivy2/cache"
+  - "$HOME/.sbt/boot/"
 scala:
-  - 2.12.1
-  
+- 2.12.1
 jdk:
-  - oraclejdk8
-  
+- oraclejdk8
 services:
-  - docker  
-
+- docker
+env:
+  matrix:
+  - secure: GOCz25QVOmFD9wX/EdPiz0nbvgfC3HbC+X85fulpt8oCNcde/sWAwJ/4H+71W4WkwVTuzf1OoVw1Jnq6eaWeAwKLhf95FlFyC5Qzli+eO/VDJYsGuMtXvU2ccRGeZmGcRbUV6QPwkNPQI/M5aH38eK1FMBaHIRn37pPL991fiecoB+s5yvc0xiJ2iHucFVU9PziM4w1bxnHl7f8NIz5mWpthaspz+vyN1DI/Csw4DNQVzo8lfBD2kdnBEAD3MkNXhm+7p2ez4/E3EcywY5XziPuzWRWdcvUsd78EW02+M6zK7YiU8gsUSV8ZhucPxpvfqBrfwOIN2YLEuKNlGdvSaCYTwm+TNqpLh6p1es5ZKIvLF4swGgg8L5KkK+yE2XGgjE7u5Uy7DAgdkGeIGjs3gM9ErGBrVFGaBBTrzXEqVnRS2eI5b7dI3rtCb1DJgBE/nzmZWPwLTMYi2lxQffeB1xkwg9yI9ykAtkaJfXsTr7BarVBl3J0hZVVrTu8s027UDV2wgX1JGQr14KTbZ4+DJl+xLlfdDpVzZgQBobbc6AgQx2e76C3fccSTEbjrTTLaxXqf94G/69h+c6Y8ULdSq/TUzSFWOSbNiqoBDFfkcLjKWSifvokfd/NgSy8VX4LKv0zmDoo8212WhcS7fMEn/gtkS8nL5HS6P+rzR/2Lc+A=
+  - secure: lz1Ec0WG93tIHLuKKpo6W3COAEHeNTrD5kFBZxuGExUt7H87lU4EvQ4QolU7qoCycUAgjTYvgJm2N+JBVaokfeHYQppj6fKbxGJxXL9+ZiR1iheBWEIcuxaem00eg/XtqjlxiTZ3Ca3oudyrBoWhVFBIYim3zEa1CWF0bqy77IZ0BlAQJyCze1yevyCzzPCB6J8Vy8yEZteSSBJ02B8OI/1gRGR+bMKcr+afk/+ZneGAZ8qfEPZ8NaFxEn8O34YKot8XKJSUMPLA4KsPEcwnGco2KnSGuB9pxnc3MDFt6eMLxsfuU0RIknW+y0c8I6t2ATINhcmxgXVLfbGnlMq0jKjOXgv/TCbDKNgc278WZPo6amh99GBQI+Oa4+x7026YxXHuhYvEmIaG1z/+jXpkxXDvAm6XjLMeDHyNPkeNcASbCVyhlKKcABbMSB9tapWfJwWjSOsSbfpM63AOUVtHb2zGquxvQcflPvzUFRo+YzuNfnA3LjZtzprS+Mv/2/+t1CYyoLfNFeBIIH4Nah6upzi903RhLdNZ9kEo2I/4dytIgcR5Ix1KPTsP55KDQBJvN5G35qX8ZgZQFMFB3b2bcDQGbj45nLcHM7BnyHa+YJ0PT2BNWoxQZakM6ABWY38zew1V9CeLPCI07lrSZyCd/Up3MRmz2dtqb6UzJHyoA1A= 
 after_success:
-  - sbt docker:publishLocal 
+- sbt docker:publishLocal
+- docker login -u emildafinov -p $API_KEY -e $EMAIL emildafinov-docker-emiliorodo-docker.bintray.io
+- docker push emildafinov-docker-emiliorodo-docker.bintray.io/scala-ad-sdk-client:0.1
