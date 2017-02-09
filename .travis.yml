@@ -14,6 +14,7 @@ env:
   - DOCKER_REGISTRY_SERVER="emildafinov-docker-emiliorodo-docker.bintray.io"
   matrix:
     secure: p6dv5IxMosQAPQKK93tX2+GeUZy0IgA56YTyTR6VMLHMySwgxaAj6CQADXwdvoTD9BlfsYllw40dl93LYlFGavyzETycftfPAtY8QiSH1EcBMiHFU3OZIecDxe2mAhpR4FafHgbgl+2gosBxpQUAMlmJI6cpM4ruPMLYvNI5QPTei2CDbeUyzDKk+vKCQKPe+QHX2DyBF2rsxGEvXdi3/16U7CdUOzDcL58+fq3SC4CUvhLrLebLEE7n7+BK0iQzJa/WcrsQEnNj+kCe49q5i920Otpz2e/0/1bKd6z5q2re40hrqyJyFdRduq167fa/hfjXGfvpxLqm1DEVW9IkFhy1rJTYZuc7FoQw23YmMSPXAGuirnFCRWQmmfaZlO7iw/v58WpRfqPcXv0gxT8N/hBxFGmC16zOAGTIwCrETLcrIGDoKK5ci8psJBy7toKGOnKUnvylI507GoLy27NXAtSohqd3RTZNztTdiUe2cmB+uf8ZC/UJKo+e9kxuKR5CGMuUPvHh5mTAtyKBTze7RpLk/raMcZG2PPprPf+c/DKext5NdkeXcszsLWVOMT+3IYgND93/EkEx4Hs+cowZNXrdXjSYD8R6n1SU8NxZoaZbuNavAK6rsYeAqQO8zKdmfikD2h02hOfzFM8HAFPekz+aaGqbBzNSZMTlVfI7RwM=
+sbt_args: -DregistryServer="$DOCKER_REGISTRY_SERVER"
 after_success:
 - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" "$DOCKER_REGISTRY_SERVER"
 - sbt docker:publish
