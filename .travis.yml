@@ -17,4 +17,4 @@ after_script:
    - ./trigger.sh EmilDafinov scala-ad-sdk-client-smoke-tests master $TRAVIS_ACCESS_TOKEN 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" emildafinov-docker-emiliorodo-docker.bintray.io
-  - sbt docker:publish
+  - sbt clean docker:publish
