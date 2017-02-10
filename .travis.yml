@@ -17,7 +17,6 @@ before_script:
 after_script:
    - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh
    - chmod +x trigger.sh
-   - travis login --org --github-token $TRAVIS_ACCESS_TOKEN
    - ./trigger.sh EmilDafinov scala-ad-sdk-client-smoke-tests master $TRAVIS_ACCESS_TOKEN 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" emildafinov-docker-emiliorodo-docker.bintray.io
