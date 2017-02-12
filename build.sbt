@@ -4,7 +4,7 @@ lazy val SCALATEST_VERSION = "3.0.0"
 lazy val scalaAdSdkClient = (project in file("."))
   .enablePlugins(JavaServerAppPackaging, DockerPlugin, UniversalPlugin)
   .settings(
-    scalaVersion := "2.12.1",
+    scalaVersion := "2.11.8",
 
     organization := "com.emiliorodo",
     name := "scala-ad-sdk-client",
@@ -12,7 +12,7 @@ lazy val scalaAdSdkClient = (project in file("."))
 
     licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
 
-    resolvers += Resolver.bintrayRepo(owner = "emildafinov", repo = "com.emiliorodo"),
+    resolvers += Resolver.bintrayRepo(owner = "emildafinov", repo = "maven"),
     libraryDependencies ++= Seq(
       "com.typesafe" % "config" % "1.3.0",
       "ch.qos.logback" % "logback-classic" % "1.1.7",
