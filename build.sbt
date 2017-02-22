@@ -12,7 +12,11 @@ lazy val scalaAdSdkClient = (project in file("."))
 
     licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
 
-    resolvers += Resolver.bintrayRepo(owner = "emildafinov", repo = "maven"),
+    resolvers ++= Seq(
+      "Artifactory" at "https://oss.jfrog.org/artifactory/oss-snapshot-local/",
+      Resolver.bintrayRepo(owner = "emildafinov", repo = "maven")
+    ),
+    
     libraryDependencies ++= Seq(
       "com.typesafe" % "config" % "1.3.0",
       "ch.qos.logback" % "logback-classic" % "1.1.7",
@@ -22,7 +26,7 @@ lazy val scalaAdSdkClient = (project in file("."))
       "org.mockito" % "mockito-all" % "1.10.19" % "test",
 
       //SDK dependency
-      "com.emiliorodo" %% "scala-ad-sdk" % "1.0"
+      "com.emiliorodo" %% "scala-ad-sdk" % "1.2-SNAPSHOT"
     ),
 
     maintainer in Docker := "Emil Dafinov <emil.dafinov@gmail.com>",
