@@ -2,6 +2,10 @@ language: scala
 
 scala:
   - 2.11.8
+cache:
+  directories:
+  - "$HOME/.ivy2/cache"
+  - "$HOME/.sbt/boot/"
 jdk:
   - oraclejdk8
 services:
@@ -16,5 +20,5 @@ after_script:
    - chmod +x trigger.sh
    - ./trigger.sh EmilDafinov scala-ad-sdk-client-smoke-tests master $TRAVIS_ACCESS_TOKEN 
 after_success:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" emildafinov-docker-emiliorodo-docker.bintray.io
-  - sbt clean docker:publish
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" emildafinov-docker-emiliorodo-docker.bintray.io &&
+    sbt clean docker:publish
