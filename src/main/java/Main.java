@@ -1,10 +1,10 @@
-import com.emiliorodo.ad.sdk.AppdirectConnector;
-import com.emiliorodo.ad.sdk.events.handlers.EventHandler;
-import com.emiliorodo.ad.sdk.events.payloads.events.SubscriptionCancel;
-import com.emiliorodo.ad.sdk.events.payloads.events.SubscriptionOrder;
-import com.emiliorodo.ad.sdk.events.payloads.responses.SubscriptionCancelResponse;
-import com.emiliorodo.ad.sdk.events.payloads.responses.SubscriptionOrderResponse;
-import com.emiliorodo.ad.sdk.external.AppdirectConnectorBuilder;
+import com.github.emildafinov.ad.sdk.AppdirectConnector;
+import com.github.emildafinov.ad.sdk.events.handlers.EventHandler;
+import com.github.emildafinov.ad.sdk.events.payloads.events.SubscriptionCancel;
+import com.github.emildafinov.ad.sdk.events.payloads.events.SubscriptionOrder;
+import com.github.emildafinov.ad.sdk.events.payloads.responses.SubscriptionCancelResponse;
+import com.github.emildafinov.ad.sdk.events.payloads.responses.SubscriptionOrderResponse;
+import com.github.emildafinov.ad.sdk.external.AppdirectConnectorBuilder;
 
 public class Main {
 
