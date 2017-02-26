@@ -14,8 +14,8 @@ lazy val scalaAdSdkClient = (project in file("."))
 
     resolvers ++= Seq(
       "Artifactory" at "https://oss.jfrog.org/artifactory/oss-snapshot-local/",
-      Resolver.bintrayRepo(owner = "emildafinov", repo = "maven"),
-      Resolver.bintrayRepo("lhotari","releases")
+      Resolver.bintrayRepo(owner = "emildafinov", repo = "maven")//,
+//      Resolver.bintrayRepo("lhotari","releases")
     ),
     
     libraryDependencies ++= Seq(
