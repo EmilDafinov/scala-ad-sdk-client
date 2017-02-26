@@ -1,4 +1,6 @@
 import sbt.Keys.version
+import Resolver.bintrayRepo
+import Resolver.jcenterRepo
 
 lazy val SCALATEST_VERSION = "3.0.0"
 lazy val scalaAdSdkClient = (project in file("."))
@@ -14,8 +16,8 @@ lazy val scalaAdSdkClient = (project in file("."))
 
     resolvers ++= Seq(
       "Artifactory" at "https://oss.jfrog.org/artifactory/oss-snapshot-local/",
-      Resolver.bintrayRepo(owner = "emildafinov", repo = "maven"),
-      Resolver.jcenterRepo
+      bintrayRepo("lhotari","releases"),
+      jcenterRepo
     ),
     
     libraryDependencies ++= Seq(
