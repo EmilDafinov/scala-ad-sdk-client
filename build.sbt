@@ -3,6 +3,8 @@ import Resolver.bintrayRepo
 import Resolver.jcenterRepo
 
 lazy val SCALATEST_VERSION = "3.0.0"
+lazy val dockerRepositoryName = "emildafinov-docker-docker.bintray.io"
+
 lazy val scalaAdSdkClient = (project in file("."))
   .enablePlugins(JavaServerAppPackaging, DockerPlugin, UniversalPlugin)
   .settings(
@@ -33,6 +35,6 @@ lazy val scalaAdSdkClient = (project in file("."))
     ),
 
     maintainer in Docker := "Emil Dafinov <emil.dafinov@gmail.com>",
-    packageName in Docker := s"emildafinov-docker-docker.bintray.io/${name.value}",
+    packageName in Docker := s"$dockerRepositoryName/${name.value}",
     dockerUpdateLatest := true
   )
