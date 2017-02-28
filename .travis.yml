@@ -11,11 +11,10 @@ jdk:
 services:
   - docker
 before_script:
-   - gem install travis
+   - gem install travis &&
+     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" emildafinov-docker-docker.bintray.io
 script:
-   sbt ++$TRAVIS_SCALA_VERSION clean test &&
-   docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" emildafinov-docker-docker.bintray.io &&
-   sbt clean docker:publish
+   sbt ++$TRAVIS_SCALA_VERSION clean test docker:publish
 after_script:
    - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh
    - chmod +x trigger.sh
