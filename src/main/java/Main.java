@@ -1,18 +1,23 @@
-import com.github.emildafinov.ad.sdk.AppdirectConnector;
-import com.github.emildafinov.ad.sdk.events.handlers.EventHandler;
-import com.github.emildafinov.ad.sdk.events.payloads.events.SubscriptionCancel;
-import com.github.emildafinov.ad.sdk.events.payloads.events.SubscriptionOrder;
-import com.github.emildafinov.ad.sdk.events.payloads.responses.SubscriptionCancelResponse;
-import com.github.emildafinov.ad.sdk.events.payloads.responses.SubscriptionOrderResponse;
-import com.github.emildafinov.ad.sdk.external.AppdirectConnectorBuilder;
+import java.util.Optional;
+
+import com.github.emildafinov.ad.sdk.AppMarketConnector;
+import com.github.emildafinov.ad.sdk.AppMarketConnectorBuilder;
+import com.github.emildafinov.ad.sdk.AppMarketConnectorBuilderImpl;
+import com.github.emildafinov.ad.sdk.EventHandler;
+import com.github.emildafinov.ad.sdk.authentication.AppMarketCredentials;
+import com.github.emildafinov.ad.sdk.authentication.AppMarketCredentialsSupplier;
+import com.github.emildafinov.ad.sdk.event.payloads.SubscriptionCancel;
+import com.github.emildafinov.ad.sdk.event.payloads.SubscriptionOrder;
+import com.github.emildafinov.ad.sdk.event.responses.SubscriptionCancelResponse;
+import com.github.emildafinov.ad.sdk.event.responses.SubscriptionOrderResponse;
 
 public class Main {
 
 	public static void main(String[] args) {
-		EventHandler<SubscriptionOrder, SubscriptionOrderResponse> subscriptionOrderHandler = event -> null;
-		EventHandler<SubscriptionCancel, SubscriptionCancelResponse> subscriptionCancelHandler = event -> null;
+		EventHandler<SubscriptionOrder> subscriptionOrderHandler = (event, address) -> {};
+		EventHandler<SubscriptionCancel> subscriptionCancelHandler = (event, address) -> {};
 
-		AppdirectConnector connector = new AppdirectConnectorBuilder(subscriptionOrderHandler, subscriptionCancelHandler)
+		AppMarketConnector connector = new AppMarketConnectorBuilderImpl(subscriptionOrderHandler, subscriptionCancelHandler, clientKey -> null)
 			.build();
 
 		connector.start();
